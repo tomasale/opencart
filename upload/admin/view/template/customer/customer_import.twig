@@ -1,0 +1,34 @@
+<div class="table-responsive">
+  <table class="table table-bordered table-hover">
+    <thead>
+      <tr>
+        <td class="text-right">{{ column_product_name }}</td>
+        <td class="text-right">{{ column_product_ean_name }}</td>
+        <td class="text-right">{{ column_special_price }}</td>
+        <td class="text-right">{{ column_date_added }}</td>
+        <td class="text-right">{{ column_action }}</td>
+      </tr>
+    </thead>
+    <tbody>
+      {% if imports %}
+      {% for import in imports %}
+      <tr>
+        <td class="text-right"><a href="#{{ import.import }}" target="_blank">{{ import.import }}</a></td>
+        <td class="text-right">{{ import.product_ean_name }}</td>
+        <td class="text-right">{{ import.special_price }}</td>
+        <td class="text-right">{{ import.date_added }}</td>
+          
+      </tr>
+      {% endfor %}
+      {% else %}
+      <tr>
+        <td class="text-center" colspan="3">{{ text_no_results }}</td>
+      </tr>
+      {% endif %}
+    </tbody>
+  </table>
+</div>
+<div class="row">
+  <div class="col-sm-6 text-left">{{ pagination }}</div>
+  <div class="col-sm-6 text-right">{{ results }}</div>
+</div>
